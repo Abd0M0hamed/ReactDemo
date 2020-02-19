@@ -1,0 +1,38 @@
+body {
+  background-color: #f2f2f2;
+  color:#004ba9;
+  text-align: center;
+}
+div {
+  margin: 5px;
+}
+ul {
+  list-style: circle;
+  list-style-position:inside;
+}
+#root {
+
+}
+#footer {
+  font-size: 0.7rem;
+}
+#body {
+
+}
+#todo-list {
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+.todo-element {
+  text-align: left;
+}
+.todo-element {
+  border-bottom: 1px solid #FF8C00;
+}
+.todo-element input{
+  float: left;
+}
+.cards {
+  display: flex;
+}
