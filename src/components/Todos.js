@@ -1,7 +1,7 @@
 import React from "react"
 import TodoItem from "./TodoItem"
 
-function Todo() {
+function Todos() {
 
   const TodoItems = [
     {id:"1", title:"Item 1"},
@@ -23,4 +23,4 @@ function Todo() {
     </div>
   );
 }
-export default Todo
+export default Todos

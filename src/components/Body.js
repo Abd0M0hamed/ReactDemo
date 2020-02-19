@@ -1,5 +1,5 @@
 import React from "react"
-import Todo from "./Todo"
+import Todos from "./Todos"
 import Cards from "./Cards"
 
 function Body() {
@@ -17,7 +17,7 @@ function Body() {
         <i style={styles}> {name}</i>
       </h5>
       <br /><br /><br />
-      <Todo />
+      <Todos />
       <Cards />
     </div>
   );
