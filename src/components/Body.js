@@ -1,7 +1,7 @@
 import React from "react"
 import Todos from "./Todos"
 import Cards from "./Cards"
-
+import Jokes from "./Jokes"
 function Body() {
 
   const name = "Abdelrahman Mohamed"
@@ -19,6 +19,9 @@ function Body() {
       <br /><br /><br />
       <Todos />
       <Cards />
+      <hr />
+      <Jokes />
+      <hr />
     </div>
   );
 }
