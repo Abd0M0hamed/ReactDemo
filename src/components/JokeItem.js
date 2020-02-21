@@ -9,8 +9,12 @@ const JokeItem = (props) => {
   }
   return (
     <div style={styles}>
+
       <div style={{display: props.question ? "block" : "none"}}> Question: <span style={{color:"red"}}>{props.question}</span> </div>
-      <div> Answer: <span style={{color:"green"}}>{props.answer}</span> </div>
+
+      {/* !props.answer && "none"  means If answer is empty, then will set display to none */}
+
+      <div style={{display: !props.answer && "none"}}> Answer: <span style={{color:"green"}}>{props.answer}</span> </div>
       <hr />
     </div>
   )
