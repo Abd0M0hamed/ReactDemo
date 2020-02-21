@@ -2,6 +2,8 @@ import React from "react"
 import Todos from "./Todos"
 import Cards from "./Cards"
 import Jokes from "./Jokes"
+import Products from "./Products"
+
 function Body() {
 
   const name = "Abdelrahman Mohamed"
@@ -22,6 +24,7 @@ function Body() {
       <hr />
       <Jokes />
       <hr />
+      <Products />
     </div>
   );
 }
