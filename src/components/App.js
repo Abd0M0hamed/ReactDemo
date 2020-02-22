@@ -6,8 +6,10 @@ import ReactDOM from "react-dom";
 import TopBar from "./TopBar";
 import Footer from "./Footer"
 import Body from "./Body"
-function App() {
 
+//Function-Based Component
+/*
+function App() {
   return (
     <div className="app">
       <TopBar />
@@ -15,6 +17,25 @@ function App() {
       <Footer />
     </div>
   )
+}
+*/
+
+// Class-Based Component
+class App extends React.Component {
+  getStyles(){
+    return { display: "none"}
+  }
+
+  render(){
+    const styles = this.getStyles()
+    return (
+      <div className="app" style={styles}>
+        <TopBar />
+        <Body />
+        <Footer />
+      </div>
+    )
+  }
 }
 //ReachDOM.render(WHAT TO RENDER, WHERE TO RENDER);
 
