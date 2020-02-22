@@ -8,7 +8,7 @@ import Footer from "./Footer"
 import Body from "./Body"
 
 class App extends React.Component {
-  
+
   getStyles(){
     return { display: "block"}
   }

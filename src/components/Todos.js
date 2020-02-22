@@ -4,6 +4,13 @@ import TodosData from "./TodosData"
 
 class Todos extends React.Component {
 
+  constructor(){
+    super()
+    this.state = {
+      allDone: "No"
+    }
+  }
+  
   getTodoList(){
     return TodosData.map(item => <TodoItem key={item.id} data={item} />)
   }
@@ -12,7 +19,12 @@ class Todos extends React.Component {
     const TodoList = this.getTodoList();
     return (
       <div className="todo-list">
+        <div>All Done? {this.state.allDone}</div>
         {TodoList}
+        <div>
+          <button>Mall All Done.</button>
+        </div>
+        <hr />
       </div>
     );
   }
