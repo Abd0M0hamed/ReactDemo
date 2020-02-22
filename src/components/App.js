@@ -7,23 +7,10 @@ import TopBar from "./TopBar";
 import Footer from "./Footer"
 import Body from "./Body"
 
-//Function-Based Component
-/*
-function App() {
-  return (
-    <div className="app">
-      <TopBar />
-      <Body />
-      <Footer />
-    </div>
-  )
-}
-*/
-
-// Class-Based Component
 class App extends React.Component {
+  
   getStyles(){
-    return { display: "none"}
+    return { display: "block"}
   }
 
   render(){

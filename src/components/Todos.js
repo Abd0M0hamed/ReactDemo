@@ -2,16 +2,20 @@ import React from "react"
 import TodoItem from "./TodoItem"
 import TodosData from "./TodosData"
 
-function Todos() {
+class Todos extends React.Component {
 
-  const TodoList = TodosData.map(item => {
-    return <TodoItem key={item.id} data={item} />
-  })
+  getTodoList(){
+    return TodosData.map(item => <TodoItem key={item.id} data={item} />)
+  }
 
-  return (
-    <div className="todo-list">
-      {TodoList}
-    </div>
-  );
+  render(){
+    const TodoList = this.getTodoList();
+    return (
+      <div className="todo-list">
+        {TodoList}
+      </div>
+    );
+  }
 }
+
 export default Todos

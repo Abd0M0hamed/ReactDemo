@@ -1,39 +1,33 @@
 import React from "react";
 import TopBarItem from "./TopBarItem"
 
-const TopBar = () => {
-  const barElements = [
-    {title: "Home", href: "#home"},
-    {title: "Projects", href: "#projects"},
-    {title: "Contact Us", href: "#contact-us"},
-    {title: "About Us", href: "#about-us"},
-  ]
-  return (
-      <div className="top-bar">
-        <span>LOGO</span> &nbsp;&nbsp;&nbsp;
+class TopBar extends React.Component {
 
-          <TopBarItem
-            title="Home"
-            href="#home"
-          />&nbsp;:&nbsp;
+  getBarElements(){
+    return [
+      {title: "Home", href: "#home"},
+      {title: "Projects", href: "#projects"},
+      {title: "Contact Us", href: "#contact-us"},
+      {title: "About Us", href: "#about-us"},
+    ]
+  }
 
-          <TopBarItem
-            title="Projects"
-            href="#projects"
-          />&nbsp;:&nbsp;
+  renderBarElements(){
+    return this.getBarElements().map(item => {
+      return (<TopBarItem title={item.title} href={item.href} />)
+    })
+  }
 
-          <TopBarItem
-            title="Contact Us"
-            href="#contact-us"
-          />&nbsp;:&nbsp;
+  render(){
+    const barElements = this.renderBarElements();
+    return (
+        <div className="top-bar">
+          <span>LOGO</span> &nbsp;&nbsp;&nbsp;
+            {barElements}
+        </div>
+    )
+  }
 
-          <TopBarItem
-            title="About Us"
-            href="#about-us"
-          />
-
-      </div>
-  )
 }
 
 export default TopBar

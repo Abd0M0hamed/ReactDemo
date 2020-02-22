@@ -1,13 +1,17 @@
 import React from "react"
 
-const CardItem = (props) => {
-  return (
-    <div className="card">
-      <img src={props.contact.imageUrl} />
-      <h3>{props.contact.cardTitle}</h3>
-      <div>{props.contact.cardDescription}</div>
-    </div>
-  )
+
+class CardItem extends React.Component {
+
+  render(){
+    return (
+      <div className="card">
+        <img src={this.props.contact.imageUrl} />
+        <h3>{this.props.contact.cardTitle}</h3>
+        <div>{this.props.contact.cardDescription}</div>
+      </div>
+    )
+  }
 }
 
 export default CardItem

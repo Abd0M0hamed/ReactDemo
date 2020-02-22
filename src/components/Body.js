@@ -4,28 +4,37 @@ import Cards from "./Cards"
 import Jokes from "./Jokes"
 import Products from "./Products"
 
-function Body() {
+class Body extends React.Component {
 
-  const name = "Abdelrahman Mohamed"
-  const styles = {
-    //color: "#FF8C00",
-    color: "#D90000",
-    backgroundColor: "#FFF"
+  getName() {
+    return "Abdelrahman Mohamed";
   }
 
-  return (
-    <div id="body">
-      <h5>Welcome, My name is
-        <i style={styles}> {name}</i>
-      </h5>
-      <br /><br /><br />
-      <Todos />
-      <Cards />
-      <hr />
-      <Jokes />
-      <hr />
-      <Products />
-    </div>
-  );
+  getStyles(){
+    return {
+      //color: "#FF8C00",
+      color: "#D90000",
+      backgroundColor: "#FFF"
+    }
+  }
+
+  render(){
+    const name = this.getName()
+    const styles = this.getStyles()
+    return (
+      <div id="body">
+        <h5>Welcome, My name is
+          <i style={styles}> {name}</i>
+        </h5>
+        <br /><br /><br />
+        <Todos />
+        <Cards />
+        <hr />
+        <Jokes />
+        <hr />
+        <Products />
+      </div>
+    );
+  }
 }
 export default Body

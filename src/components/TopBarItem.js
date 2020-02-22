@@ -1,9 +1,9 @@
 import React from "react"
 
-const TopBarItem = (props) => {
-  return (
-    <a href={props.href}>{props.title}</a>
-  )
+class TopBarItem extends React.Component {
+  render(){
+    return (<a href={this.props.href}>{this.props.title}</a>)
+  }
 }
 
 export default TopBarItem
