@@ -3,13 +3,10 @@ import Todos from "./Todos"
 import Cards from "./Cards"
 import Jokes from "./Jokes"
 import Products from "./Products"
+import User from "./User"
 
 class Body extends React.Component {
-
-  getName() {
-    return "Abdelrahman Mohamed";
-  }
-
+  
   getStyles(){
     return {
       //color: "#FF8C00",
@@ -19,12 +16,11 @@ class Body extends React.Component {
   }
 
   render(){
-    const name = this.getName()
+    const name = "Abdoo"//User.getName()
     const styles = this.getStyles()
     return (
       <div id="body">
-        <h5>Welcome, My name is
-          <i style={styles}> {name}</i>
+        <h5>Welcome <i style={styles}> {name}</i>
         </h5>
         <br /><br /><br />
         <Todos />
