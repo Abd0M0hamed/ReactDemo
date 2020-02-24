@@ -13,6 +13,50 @@ class App extends React.Component {
     return { display: "block"}
   }
 
+  //Executed once when the component is loaded
+  componentDidMount(){
+    console.log("Welcome, The component is Mounted");
+  }
+
+  static getDerivedStateFromProps(props, state){
+    // Return the new, updated state based upon the props
+  }
+
+  getSnapshotBeforeUpdate(){
+    // Create a backup of the current way things are
+  }
+  // Before Component Mount (Deprecated)
+  /*
+  componentWillMount() {
+
+  }
+  */
+
+  // Executed everytime component receives props (Deprecated)
+  /*
+  componentWillReceiveProps(nextProps){
+    console.log("Component receiving Props");
+  }
+  */
+
+  // If component needs to be re-rendered
+  shouldComponentUpdate(nextProps, nextState){
+    // We return true if we need it to update otherwise we return false
+  }
+
+  // If component going to be unmounted (Used for Cleanup)
+  componentWillUnmount(){
+    // remove event listeners
+    // Cleanup the code before component disappears
+  }
+
+  //Before Component Update (DeprecatedS)
+  /*
+  componentWillUpdate(){
+
+  }
+  */
+
   render(){
     const styles = this.getStyles()
     return (

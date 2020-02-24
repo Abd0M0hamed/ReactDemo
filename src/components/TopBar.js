@@ -13,8 +13,8 @@ class TopBar extends React.Component {
   }
 
   renderBarElements(){
-    return this.getBarElements().map(item => {
-      return (<TopBarItem title={item.title} href={item.href} />)
+    return this.getBarElements().map((item, key) => {
+      return (<TopBarItem id={key+1} key={key} title={item.title} href={item.href} />)
     })
   }
 
