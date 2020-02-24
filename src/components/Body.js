@@ -3,10 +3,10 @@ import Todos from "./Todos"
 import Cards from "./Cards"
 import Jokes from "./Jokes"
 import Products from "./Products"
-import User from "./User"
+//import User from "./User"
 
 class Body extends React.Component {
-  
+
   getStyles(){
     return {
       //color: "#FF8C00",

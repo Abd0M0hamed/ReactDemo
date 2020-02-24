@@ -8,14 +8,17 @@ class Todos extends React.Component {
     super()
     this.state = {
       allDone: "No",
-      counter: 0
+      counter: 0,
+      todos: TodosData
     }
     this.setAllDone = this.setAllDone.bind(this)
     this.setAllNotDone = this.setAllNotDone.bind(this)
+    this.incrementCounter = this.incrementCounter.bind(this)
+    this.handleUpdate = this.handleUpdate.bind(this)
   }
 
   getTodoList(){
-    return TodosData.map(item => <TodoItem key={item.id} data={item} />)
+    return TodosData.map(item => <TodoItem key={item.id} data={item} handleUpdate={this.handleUpdate} />)
   }
 
   setAllDone(){
@@ -30,12 +33,35 @@ class Todos extends React.Component {
     this.setState({ allDone: "No" })
   }
 
+  handleUpdate(itemId){
+    this.setState(prevState => {
+
+      const updatedTodos = prevState.todos.map(todo => {
+          if(todo.id === itemId) {
+            todo.completed = !todo.completed
+          }
+          return todo
+      })
+
+      // OR
+      // const updatedTodos = prevState.todos
+      // updatedTodos[itemId-1].completed = !updatedTodos[itemId-1].completed
+
+      return {
+        todos: updatedTodos
+      }
+    })
+
+  }
+
   incrementCounter(){
+
     this.setState(prevState => {
       return {
         counter: prevState.counter + 1
       }
     })
+
   }
 
   render(){
