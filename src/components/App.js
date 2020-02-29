@@ -20,11 +20,9 @@ class App extends React.Component {
   //Executed once when the component is loaded
   componentDidMount(){
     console.log("Welcome, The component is Mounted");
-    setTimeout(()=>{
-      this.setState({
-        isLoading: false
-      })
-    },1500);
+    this.setState({
+      isLoading: false
+    })
   }
 
   /*

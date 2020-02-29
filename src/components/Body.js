@@ -3,6 +3,7 @@ import Todos from "./Todos"
 import Cards from "./Cards"
 import Jokes from "./Jokes"
 import Products from "./Products"
+import RemoteCaller from "./RemoteCaller"
 //import User from "./User"
 
 class Body extends React.Component {
@@ -25,10 +26,12 @@ class Body extends React.Component {
 
     return (
       <div id="body">
-        <h5>Welcome <i style={styles}> {name}</i>
-        </h5>
-        <br /><br /><br />
+        <h5>Welcome <i style={styles}> {name}</i></h5>
+        <br />
+        <RemoteCaller />
+        <br />
         <Todos />
+        <br />
         <Cards />
         <hr />
         <Jokes />
