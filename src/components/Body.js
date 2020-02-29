@@ -18,6 +18,11 @@ class Body extends React.Component {
   render(){
     const name = "Abdoo"//User.getName()
     const styles = this.getStyles()
+
+    if(this.props.isLoading){
+      return (<h1>Loading</h1>)
+    }
+
     return (
       <div id="body">
         <h5>Welcome <i style={styles}> {name}</i>

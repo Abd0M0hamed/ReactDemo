@@ -9,22 +9,36 @@ import Body from "./Body"
 
 class App extends React.Component {
 
-  getStyles(){
-    return { display: "block"}
+  constructor(){
+    super()
+    this.state = {
+      isLoading: true
+    }
   }
+
 
   //Executed once when the component is loaded
   componentDidMount(){
     console.log("Welcome, The component is Mounted");
+    setTimeout(()=>{
+      this.setState({
+        isLoading: false
+      })
+    },1500);
   }
 
+  /*
   static getDerivedStateFromProps(props, state){
     // Return the new, updated state based upon the props
   }
+  */
 
+  /*
   getSnapshotBeforeUpdate(){
     // Create a backup of the current way things are
   }
+  */
+
   // Before Component Mount (Deprecated)
   /*
   componentWillMount() {
@@ -39,10 +53,12 @@ class App extends React.Component {
   }
   */
 
+  /*
   // If component needs to be re-rendered
   shouldComponentUpdate(nextProps, nextState){
     // We return true if we need it to update otherwise we return false
   }
+  */
 
   // If component going to be unmounted (Used for Cleanup)
   componentWillUnmount(){
@@ -56,14 +72,15 @@ class App extends React.Component {
 
   }
   */
+  getStyles(){
+    return { display: "block"}
+  }
 
   render(){
     const styles = this.getStyles()
     return (
       <div className="app" style={styles}>
-        <TopBar />
-        <Body />
-        <Footer />
+        <TopBar /><Body isLoading={this.state.isLoading} /><Footer />
       </div>
     )
   }
