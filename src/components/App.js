@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 
 import TopBar from "./TopBar";
 import Footer from "./Footer"
-import Body from "./Body"
+import User from "./user/User"
 
 class App extends React.Component {
 
@@ -78,7 +78,9 @@ class App extends React.Component {
     const styles = this.getStyles()
     return (
       <div className="app" style={styles}>
-        <TopBar /><Body isLoading={this.state.isLoading} /><Footer />
+        <TopBar />
+        <User />
+        <Footer />
       </div>
     )
   }
