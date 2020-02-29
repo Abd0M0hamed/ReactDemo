@@ -5,7 +5,8 @@ class TodoItem extends React.Component {
   getElementStyles(elementStatus){
     return elementStatus ? {
       textDecoration: 'line-through',
-      color: 'green'
+      color: 'green',
+      fontStyle: 'italic'
     } :
     {
       color: 'red'

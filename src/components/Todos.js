@@ -1,6 +1,5 @@
 import React from "react"
 import TodoItem from "./TodoItem"
-import TodosData from "./TodosData"
 
 class Todos extends React.Component {
 
@@ -8,20 +7,22 @@ class Todos extends React.Component {
     super()
     this.state = {
       allDone: "No",
-      counter: 0,
-      todos: TodosData
+      todos: []
     }
     this.setAllDone = this.setAllDone.bind(this)
     this.setAllNotDone = this.setAllNotDone.bind(this)
-    this.incrementCounter = this.incrementCounter.bind(this)
+    this.addItem = this.addItem.bind(this)
     this.handleChange = this.handleChange.bind(this)
-
+    this.getItemsCount = this.getItemsCount.bind(this)
   }
 
   getTodoList(){
-    return TodosData.map(item => <TodoItem key={item.id} data={item} handleChange={this.handleChange} />)
+    return this.state.todos.map(item => <TodoItem key={item.id} data={item} handleChange={this.handleChange} />)
   }
 
+  getItemsCount(){
+    return this.state.todos.length
+  }
   /**
   * @parameter status boolean
   */
@@ -46,22 +47,17 @@ class Todos extends React.Component {
     this.setAllStatus(false)
   }
 
-
-
   handleChange(itemId){
     this.setState(prevState => {
-
-      const updatedTodos = prevState.todos.map(todo => {
+      var updatedTodos = this.state.todos.map(todo => {
           if(todo.id === itemId) {
             todo.completed = !todo.completed
           }
           return todo
       })
-
       // OR
       // const updatedTodos = prevState.todos
       // updatedTodos[itemId-1].completed = !updatedTodos[itemId-1].completed
-
       return {
         todos: updatedTodos
       }
@@ -69,28 +65,31 @@ class Todos extends React.Component {
 
   }
 
-  incrementCounter(){
-
+  addItem(){
     this.setState(prevState => {
+      var newItemId = this.getItemsCount() + 1;
+      let updatedTodos = prevState.todos;
+      updatedTodos.push({ id:newItemId, title:"Item " + newItemId, completed: false })
       return {
-        counter: prevState.counter + 1
+        todos: updatedTodos
       }
     })
-
   }
 
   render(){
-    const TodoList = this.getTodoList();
+    let TodoList = this.getTodoList();
     return (
       <div className="todo-list">
-        <div>All Done? <span style={{color: "red", fontWeight: "bold"}}>{this.state.allDone}</span></div>
+        {this.state.todos.length > 0 ?
+          <div>
+            <button onClick={this.setAllDone}>Make All Done.</button>
+            <button onClick={this.setAllNotDone}>Make All Not Done.</button>
+            <p>Items: {this.state.todos.length}</p>
+          </div>
+          : <div>No Todos, Have Fun before getting involved :)</div>
+        }
         <div>
-          <button onClick={this.setAllDone}>Make All Done.</button>
-          <button onClick={this.setAllNotDone}>Make All Not Done.</button>
-        </div>
-        <div>
-          <p>{this.state.counter}</p>
-          <button onClick={this.incrementCounter}>Increment.</button>
+          <button onClick={this.addItem}>Add Item.</button>
         </div>
         {TodoList}
         <hr />
