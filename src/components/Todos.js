@@ -14,26 +14,41 @@ class Todos extends React.Component {
     this.setAllDone = this.setAllDone.bind(this)
     this.setAllNotDone = this.setAllNotDone.bind(this)
     this.incrementCounter = this.incrementCounter.bind(this)
-    this.handleUpdate = this.handleUpdate.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+
   }
 
   getTodoList(){
-    return TodosData.map(item => <TodoItem key={item.id} data={item} handleUpdate={this.handleUpdate} />)
+    return TodosData.map(item => <TodoItem key={item.id} data={item} handleChange={this.handleChange} />)
+  }
+
+  /**
+  * @parameter status boolean
+  */
+  setAllStatus(status){
+    let statusString = (status) ? "Yes" : "No"
+    this.setState({ allDone: statusString })
+
+    this.setState((prevState) => {
+      let newTodosList = prevState.todos.map((item) => {
+        item.completed = status
+      })
+      return newTodosList
+
+    })
   }
 
   setAllDone(){
-    this.setState({ allDone: "Yes" })
-    // OR
-    /*this.setState(prevState => {
-      return "Hii"
-    })*/
+    this.setAllStatus(true)
   }
 
   setAllNotDone() {
-    this.setState({ allDone: "No" })
+    this.setAllStatus(false)
   }
 
-  handleUpdate(itemId){
+
+
+  handleChange(itemId){
     this.setState(prevState => {
 
       const updatedTodos = prevState.todos.map(todo => {
