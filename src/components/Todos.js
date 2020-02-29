@@ -7,17 +7,17 @@ class Todos extends React.Component {
     super()
     this.state = {
       allDone: "No",
-      todos: []
+      todos: [{id: 1, title: 'Task 1', completed: true}]
     }
     this.setAllDone = this.setAllDone.bind(this)
     this.setAllNotDone = this.setAllNotDone.bind(this)
     this.addItem = this.addItem.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.getItemsCount = this.getItemsCount.bind(this)
+    this.handleRemove = this.handleRemove.bind(this)
   }
 
   getTodoList(){
-    return this.state.todos.map(item => <TodoItem key={item.id} data={item} handleChange={this.handleChange} />)
+    return this.state.todos.map(item => <TodoItem key={item.id} data={item} handleChange={this.handleChange} handleRemove={this.handleRemove} />)
   }
 
   getItemsCount(){
@@ -65,11 +65,22 @@ class Todos extends React.Component {
 
   }
 
+  handleRemove(itemId){
+    this.setState(prevState => {
+      let updatedTodos = prevState.todos.filter((item) => {
+        return itemId === item.id ? false : true;
+      })
+      return {
+        todos: updatedTodos
+      };
+    })
+  }
+
   addItem(){
     this.setState(prevState => {
       var newItemId = this.getItemsCount() + 1;
       let updatedTodos = prevState.todos;
-      updatedTodos.push({ id:newItemId, title:"Item " + newItemId, completed: false })
+      updatedTodos.push({ id:newItemId, title:"Task " + newItemId, completed: false })
       return {
         todos: updatedTodos
       }
