@@ -1,4 +1,5 @@
-# Welcome to ReactDemo, My First React Project.
+# Welcome to ReactDemo.
+A demo Simple Project to test ReactJS.
 
 ## Run Project
 ```bash

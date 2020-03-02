@@ -2,7 +2,7 @@ import React from "react"
 import SignIn from "./SignIn"
 import SignUp from "./SignUp"
 import SignOut from "./SignOut"
-import Body from "../Body"
+import Body from "../layout/Body"
 
 class User extends React.Component {
 

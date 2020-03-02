@@ -1,10 +1,10 @@
 import React from "react"
-import Todos from "./Todos"
-import Cards from "./Cards"
-import Jokes from "./Jokes"
-import Products from "./Products"
-import RemoteCaller from "./RemoteCaller"
-import ContactUs from "./ContactUs"
+import Todos from "../todos/Todos"
+import Cards from "../cards/Cards"
+import Jokes from "../jokes/Jokes"
+import Products from "../products/Products"
+import RemoteCaller from "../etc/RemoteCaller"
+import ContactUs from "../forms/ContactUs"
 
 class Body extends React.Component {
 

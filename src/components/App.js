@@ -3,8 +3,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import TopBar from "./TopBar";
-import Footer from "./Footer"
+import TopBar from "./layout/TopBar";
+import Footer from "./layout/Footer"
 import User from "./user/User"
 
 class App extends React.Component {
